@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regular_contributors",
+  "info": {
+    "singularName": "regular-contributor",
+    "pluralName": "regular-contributors",
+    "displayName": "Regular Contributor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "text"
+    },
+    "monthly_contribution": {
+      "type": "text"
+    },
+    "total_contribution": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "impact": {
+      "type": "text"
+    },
+    "message": {
+      "type": "text"
+    },
+    "contribution_date": {
+      "type": "date"
+    },
+    "place": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "text"
+    }
+  }
+}

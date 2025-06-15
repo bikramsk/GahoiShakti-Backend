@@ -1,0 +1,70 @@
+{
+  "collectionName": "components_layout_sibling_details",
+  "info": {
+    "displayName": "sibling-details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sibling_name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "Secondary",
+        "Higher Secondary",
+        "Graduate",
+        "Post Graduate",
+        "Other"
+      ]
+    },
+    "occupation": {
+      "type": "enumeration",
+      "enum": [
+        "Student",
+        "Employed",
+        "Self-Employed",
+        "Business",
+        "Homemaker",
+        "Other"
+      ]
+    },
+    "marital_status": {
+      "type": "enumeration",
+      "enum": [
+        "Married",
+        "Unmarried"
+      ]
+    },
+    "is_dependent": {
+      "type": "boolean"
+    },
+    "sibling_relation": {
+      "type": "enumeration",
+      "enum": [
+        "Father's (Elder) Brother ताऊ",
+        "Father's (Younger) Brother चाचा",
+        "Father's Sister बुआ",
+        "Mother's Brother मामा",
+        "Mother's Sister मौसी",
+        "Sister बहन",
+        "Brother भाई"
+      ]
+    }
+  }
+}

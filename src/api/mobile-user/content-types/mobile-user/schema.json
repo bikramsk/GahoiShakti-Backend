@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mobile_users",
+  "info": {
+    "singularName": "mobile-user",
+    "pluralName": "mobile-users",
+    "displayName": "MobileUser",
+    "description": "Users who authenticate with mobile number and MPIN/OTP"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mobileNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 10,
+      "maxLength": 10
+    },
+    "mpin": {
+      "type": "string",
+      "private": true,
+      "minLength": 4,
+      "maxLength": 4
+    },
+    "lastOtpSent": {
+      "type": "datetime"
+    },
+    "lastOtp": {
+      "type": "string",
+      "private": true
+    },
+    "otpAttempts": {
+      "type": "integer",
+      "default": 0
+    },
+    "isBlocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "blockUntil": {
+      "type": "datetime"
+    },
+    "name": {
+      "type": "string"
+    },
+    "isRegistered": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+} 

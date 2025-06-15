@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banner_images",
+  "info": {
+    "singularName": "banner-image",
+    "pluralName": "banner-images",
+    "displayName": "Banner Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "desktopImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 1
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "altText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

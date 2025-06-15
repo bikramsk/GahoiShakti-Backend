@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registration_pages",
+  "info": {
+    "singularName": "registration-page",
+    "pluralName": "registration-pages",
+    "displayName": "Registration",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true,
+    "mainField": "registration_code"
+  },
+  "attributes": {
+    "family_details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.family-details"
+    },
+    "child_name": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.child-details"
+    },
+    "biographical_details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.biographical-details"
+    },
+    "personal_information": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.personal-information"
+    },
+    "work_information": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.work-information"
+    },
+    "additional_details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.additional-details"
+    },
+    "your_suggestions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.your-suggestion"
+    },
+    "gahoi_code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    }
+  }
+}

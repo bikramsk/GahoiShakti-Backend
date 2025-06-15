@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_mpins",
+  "info": {
+    "singularName": "user-mpin",
+    "pluralName": "user-mpins",
+    "displayName": "UserMPIN",
+    "description": "User MPIN and OTP management"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mobileNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 10,
+      "minLength": 10
+    },
+    "mpin": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "lastOtp": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "lastOtpSent": {
+      "type": "datetime"
+    }
+  }
+}

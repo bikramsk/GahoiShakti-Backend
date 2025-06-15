@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_localized_rich_texts",
+  "info": {
+    "displayName": "Localized Rich Text"
+  },
+  "options": {},
+  "attributes": {
+    "hi": {
+      "type": "blocks"
+    },
+    "en": {
+      "type": "blocks"
+    }
+  }
+}

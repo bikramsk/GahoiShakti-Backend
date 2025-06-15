@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_layout_additional_details",
+  "info": {
+    "displayName": "Additional Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "blood_group": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "date"
+    },
+    "date_of_marriage": {
+      "type": "date"
+    },
+    "higher_education": {
+      "type": "string"
+    },
+    "current_address": {
+      "type": "text"
+    },
+    "regional_information": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.regional-information"
+    }
+  }
+}

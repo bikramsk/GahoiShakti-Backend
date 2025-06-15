@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_layout_seva_places",
+  "info": {
+    "displayName": "sevaPlaces",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "inCharge": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "text"
+    }
+  }
+}

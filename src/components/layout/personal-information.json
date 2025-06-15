@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_layout_personal_informations",
+  "info": {
+    "displayName": "Personal Information",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "display_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "village": {
+      "type": "string"
+    },
+    "mobile_number": {
+      "type": "biginteger",
+      "required": true,
+      "max": "10"
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ],
+      "required": true
+    },
+    "email_address": {
+      "type": "email",
+      "required": true
+    },
+    "nationality": {
+      "type": "enumeration",
+      "enum": [
+        "Indian",
+        "Non-Indian"
+      ]
+    },
+    "is_gahoi": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": true
+    }
+  }
+}

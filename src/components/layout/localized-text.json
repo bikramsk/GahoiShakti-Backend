@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_localized_texts",
+  "info": {
+    "displayName": "Localized Text"
+  },
+  "options": {},
+  "attributes": {
+    "hi": {
+      "type": "string"
+    },
+    "en": {
+      "type": "string"
+    }
+  }
+}

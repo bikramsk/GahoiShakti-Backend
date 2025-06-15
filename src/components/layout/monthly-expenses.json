@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_layout_monthly_expenses",
+  "info": {
+    "displayName": "monthlyExpenses",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Month": {
+      "type": "string"
+    },
+    "feed": {
+      "type": "biginteger"
+    },
+    "medical": {
+      "type": "biginteger"
+    },
+    "maintenance": {
+      "type": "biginteger"
+    },
+    "staff": {
+      "type": "biginteger"
+    },
+    "total": {
+      "type": "biginteger"
+    }
+  }
+}

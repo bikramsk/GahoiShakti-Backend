@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_layout_family_details",
+  "info": {
+    "displayName": "Family Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "father_name": {
+      "type": "string",
+      "required": false
+    },
+    "mother_name": {
+      "type": "string",
+      "required": false
+    },
+    "phone_number": {
+      "type": "biginteger",
+      "required": false
+    },
+    "spouse_name": {
+      "type": "string",
+      "required": false
+    },
+    "siblingDetails": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.sibling-details"
+    },
+    "father_mobile": {
+      "type": "string"
+    },
+    "mother_mobile": {
+      "type": "string"
+    },
+    "spouse_mobile": {
+      "type": "string"
+    },
+    "gotra": {
+      "type": "string",
+      "required": false
+    },
+    "aakna": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

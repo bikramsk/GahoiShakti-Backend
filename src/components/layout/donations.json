@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_donations",
+  "info": {
+    "displayName": "donations",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Amount": {
+      "type": "biginteger"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "place": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    }
+  }
+}

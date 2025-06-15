@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cowsevas",
+  "info": {
+    "singularName": "cowseva",
+    "pluralName": "cowsevas",
+    "displayName": "cowseva",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "donations": {
+      "displayName": "donations",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.donations",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "monthlyExpenses": {
+      "displayName": "monthlyExpenses",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.monthly-expenses",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "sevaPlaces": {
+      "displayName": "sevaPlaces",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.seva-places",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

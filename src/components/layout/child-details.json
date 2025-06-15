@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_child_details",
+  "info": {
+    "displayName": "Child Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "child_name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "phone_number": {
+      "type": "string"
+    }
+  }
+}

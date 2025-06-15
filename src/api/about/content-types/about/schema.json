@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": "Write about yourself and the content you create"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "responsibilities_title": {
+      "type": "string"
+    },
+    "responsibilities_description": {
+      "type": "text"
+    },
+    "responsibilities_desc_1": {
+      "type": "blocks"
+    },
+    "responsibilities_desc_2": {
+      "type": "blocks"
+    },
+    "responsibilities_desc_3": {
+      "type": "blocks"
+    }
+  }
+}

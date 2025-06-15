@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "login_pages",
+  "info": {
+    "singularName": "login-page",
+    "pluralName": "login-pages",
+    "displayName": "loginPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "welcomeMessage": {
+      "type": "string",
+      "default": "Welcome to Gahoi Jan Kalyan Samiti ",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slogan": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 5
+    }
+  }
+}
