@@ -1,5 +1,5 @@
 module.exports = ({ env }) => ({
-  url: env('PUBLIC_URL', 'https://api.gahoishakti.in'), 
+  url: env('PUBLIC_URL', 'https://api2.gahoishakti.in'), 
   host: '0.0.0.0', 
   port: env.int('PORT', 1337),
   app: {

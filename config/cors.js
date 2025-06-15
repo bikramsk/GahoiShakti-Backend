@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   cors: {
     enabled: true,
-    origin: ['https://www.gahoishakti.in', 'http://localhost:5173'],
+    origin: ['https://demo.gahoishakti.in','http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
     headers: [
