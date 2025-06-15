@@ -1,0 +1,46 @@
+name: Deploy Strapi Backend to VPS
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    name: Deploy on Production Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            mkdir -p ${{ secrets.VPS_BACKEND_DIR }}
+            cd ${{ secrets.VPS_BACKEND_DIR }}
+            pm2 stop strapi || true
+            rm -rf * .[^.]* || true
+          EOF
+
+      - name: Upload code to VPS
+        run: |
+          rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_BACKEND_DIR }}
+
+      - name: Build & Start Strapi on VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd ${{ secrets.VPS_BACKEND_DIR }}
+            export NODE_ENV=production
+            npm ci
+            npm run build
+            pm2 start ecosystem.config.js --only strapi || pm2 restart strapi
+            pm2 save
+          EOF
