@@ -35,7 +35,7 @@
     },
     "email_address": {
       "type": "email",
-      "required": true
+      "required": false
     },
     "nationality": {
       "type": "enumeration",

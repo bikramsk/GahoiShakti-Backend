@@ -366,7 +366,7 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
   };
   attributes: {
     display_picture: Schema.Attribute.Media<'images'>;
-    email_address: Schema.Attribute.Email & Schema.Attribute.Required;
+    email_address: Schema.Attribute.Email;
     full_name: Schema.Attribute.String;
     Gender: Schema.Attribute.Enumeration<['Male', 'Female']> &
       Schema.Attribute.Required;
