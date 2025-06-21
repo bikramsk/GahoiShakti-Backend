@@ -590,6 +590,38 @@ export interface ApiCowsevaCowseva extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGalleryEventGalleryEvent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'gallery_events';
+  info: {
+    displayName: 'Gallery Event';
+    pluralName: 'gallery-events';
+    singularName: 'gallery-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Text;
+    Images: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery-event.gallery-event'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1557,6 +1589,7 @@ declare module '@strapi/strapi' {
       'api::banner-image.banner-image': ApiBannerImageBannerImage;
       'api::contact.contact': ApiContactContact;
       'api::cowseva.cowseva': ApiCowsevaCowseva;
+      'api::gallery-event.gallery-event': ApiGalleryEventGalleryEvent;
       'api::global.global': ApiGlobalGlobal;
       'api::latest-news.latest-news': ApiLatestNewsLatestNews;
       'api::login-page.login-page': ApiLoginPageLoginPage;
