@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gallery_events",
+  "info": {
+    "singularName": "gallery-event",
+    "pluralName": "gallery-events",
+    "displayName": "Gallery Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
