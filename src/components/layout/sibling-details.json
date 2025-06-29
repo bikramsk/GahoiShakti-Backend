@@ -48,7 +48,9 @@
       "type": "enumeration",
       "enum": [
         "Married",
-        "Unmarried"
+        "Unmarried",
+        "Widow/Widower",
+        "Divorced"
       ]
     },
     "is_dependent": {

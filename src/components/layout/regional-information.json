@@ -9,7 +9,7 @@
     "RegionalAssembly": {
       "type": "enumeration",
       "enum": [
- "",
+        "",
         "Chambal Regional Assembly",
         "Ganga Jamuna Regional Assembly",
         "Bundelkhand Regional Assembly",
@@ -298,7 +298,10 @@
         "Mumbai",
         "Other",
         "Mathura",
-        "Delhi"
+        "Delhi",
+        "Digoda",
+        "Lidhora",
+        "Khargapur"
       ]
     },
     "State": {
@@ -314,6 +317,14 @@
         "Rajasthan",
         "Uttar Pradesh"
       ]
+    },
+    "local_body": {
+      "type": "string",
+      "required": true
+    },
+    "gram_panchayat": {
+      "type": "string",
+      "required": true
     }
   }
 }

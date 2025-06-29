@@ -227,55 +227,14 @@
         "Others"
       ]
     },
-    "Mama_Aakna": {
-      "type": "enumeration",
-      "enum": [
-        "Aasu",
-        "Amar",
-        "Amolya",
-        "Amoriya",
-        "Andhi",
-        "Baderiya",
-        "Badonya",
-        "Bajrangdiya",
-        "Bedar"
-      ]
-    },
-    "manglik_status": {
-      "type": "enumeration",
-      "enum": [
-"",
-        "Manglik",
-        "Non Manglik",
-        "Aanshik",
-        "Other"
-      ]
-    },
-    "Grah": {
-      "type": "enumeration",
-      "enum": [
-"",
-        "Devta",
-        "Manushya",
-        "Rakshasa"
-      ]
-    },
-    "Handicap": {
-      "type": "enumeration",
-      "enum": [
-"",
-        "None",
-        "Physically",
-        "Mentally",
-        "Other"
-      ]
-    },
     "is_married": {
       "type": "enumeration",
       "enum": [
 "",
         "Married",
-        "Unmarried"
+        "Unmarried",
+        "Widow/Widower",
+        "Divorced"
       ]
     },
     "marriage_to_another_caste": {
@@ -285,6 +244,10 @@
         "Married to Another Caste",
         "Same Caste Marriage"
       ]
+    },
+    "consider_second_marriage": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

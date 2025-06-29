@@ -227,6 +227,8 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Others',
       ]
     >;
+    consider_second_marriage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     Gotra: Schema.Attribute.Enumeration<
       [
         'Vasar/Vastil/Vasal',
@@ -245,26 +247,8 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Others',
       ]
     >;
-    Grah: Schema.Attribute.Enumeration<['', 'Devta', 'Manushya', 'Rakshasa']>;
-    Handicap: Schema.Attribute.Enumeration<
-      ['', 'None', 'Physically', 'Mentally', 'Other']
-    >;
-    is_married: Schema.Attribute.Enumeration<['', 'Married', 'Unmarried']>;
-    Mama_Aakna: Schema.Attribute.Enumeration<
-      [
-        'Aasu',
-        'Amar',
-        'Amolya',
-        'Amoriya',
-        'Andhi',
-        'Baderiya',
-        'Badonya',
-        'Bajrangdiya',
-        'Bedar',
-      ]
-    >;
-    manglik_status: Schema.Attribute.Enumeration<
-      ['', 'Manglik', 'Non Manglik', 'Aanshik', 'Other']
+    is_married: Schema.Attribute.Enumeration<
+      ['', 'Married', 'Unmarried', 'Widow/Widower', 'Divorced']
     >;
     marriage_to_another_caste: Schema.Attribute.Enumeration<
       ['', 'Married to Another Caste', 'Same Caste Marriage']
@@ -392,6 +376,8 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     displayName: 'Regional Information';
   };
   attributes: {
+    gram_panchayat: Schema.Attribute.String & Schema.Attribute.Required;
+    local_body: Schema.Attribute.String & Schema.Attribute.Required;
     LocalPanchayat: Schema.Attribute.Enumeration<
       [
         '',
@@ -694,6 +680,9 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
         'Other',
         'Mathura',
         'Delhi',
+        'Digoda',
+        'Lidhora',
+        'Khargapur',
       ]
     >;
   };
@@ -735,7 +724,9 @@ export interface LayoutSiblingDetails extends Struct.ComponentSchema {
     >;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
     is_dependent: Schema.Attribute.Boolean;
-    marital_status: Schema.Attribute.Enumeration<['Married', 'Unmarried']>;
+    marital_status: Schema.Attribute.Enumeration<
+      ['Married', 'Unmarried', 'Widow/Widower', 'Divorced']
+    >;
     occupation: Schema.Attribute.Enumeration<
       ['Student', 'Employed', 'Self-Employed', 'Business', 'Homemaker', 'Other']
     >;
@@ -795,15 +786,14 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
         'More than 20 years',
       ]
     >;
-    company_name: Schema.Attribute.String;
     employmentType: Schema.Attribute.Enumeration<
       [
         '',
-        'Full-time',
-        'Part-time',
-        'Contract',
-        'Self-employed',
+        'Central Government Employee',
+        'State Government Employee',
+        'Private Sector Employee',
         'Business Owner',
+        'Self-employed',
         'Not Currently Employed',
       ]
     > &
@@ -830,8 +820,6 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
       ]
     > &
       Schema.Attribute.Required;
-    occupation: Schema.Attribute.String;
-    work_area: Schema.Attribute.String;
     workType: Schema.Attribute.Enumeration<
       [
         '',

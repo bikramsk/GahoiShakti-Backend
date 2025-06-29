@@ -6,15 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "occupation": {
-      "type": "string"
-    },
-    "company_name": {
-      "type": "string"
-    },
-    "work_area": {
-      "type": "string"
-    },
     "industrySector": {
       "type": "enumeration",
       "enum": [
@@ -70,11 +61,11 @@
       "type": "enumeration",
       "enum": [
         "",
-        "Full-time",
-        "Part-time",
-        "Contract",
-        "Self-employed",
+        "Central Government Employee",
+        "State Government Employee",
+        "Private Sector Employee",
         "Business Owner",
+        "Self-employed",
         "Not Currently Employed"
       ],
       "required": true
