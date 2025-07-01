@@ -1,0 +1,161 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gahoi_sammelans",
+  "info": {
+    "singularName": "gahoi-sammelan",
+    "pluralName": "gahoi-sammelans",
+    "displayName": "Gahoi Sammelan",
+    "description": "Stores Gahoi Sammelan registration form submissions"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": ["male", "female"],
+      "required": true
+    },
+    "gotra": {
+      "type": "string"
+    },
+    "aankna": {
+      "type": "string"
+    },
+    "gan": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "birthPlace": {
+      "type": "string"
+    },
+    "birthTime": {
+      "type": "time"
+    },
+    "height": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "mama": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "postGraduate",
+        "graduate",
+        "diploma",
+        "class12",
+        "class10",
+        "other"
+      ]
+    },
+    "mobile": {
+      "type": "string",
+      "required": true
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "annualIncome": {
+      "type": "string"
+    },
+    "currentAddress": {
+      "type": "text",
+      "required": true
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "previousSpouseName": {
+      "type": "string"
+    },
+    "marriageDate": {
+      "type": "date"
+    },
+    "marriageEndDate": {
+      "type": "date"
+    },
+    "endReason": {
+      "type": "string"
+    },
+    "childrenCount": {
+      "type": "integer"
+    },
+    "childrenDetails": {
+      "type": "text"
+    },
+    "kundliAvailable": {
+      "type": "boolean"
+    },
+    "kundliMatching": {
+      "type": "boolean"
+    },
+    "agePreference": {
+      "type": "string"
+    },
+    "educationPreference": {
+      "type": "string"
+    },
+    "partnerType": {
+      "type": "enumeration",
+      "enum": ["business", "service", "housewife", "any"]
+    },
+    "acceptChildrenPartner": {
+      "type": "boolean"
+    },
+    "cityPreference": {
+      "type": "string"
+    },
+    "motherName": {
+      "type": "string"
+    },
+    "fatherName": {
+      "type": "string"
+    },
+    "siblings": {
+      "type": "text"
+    },
+    "fullSizePhoto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "aadharCard": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "divorceDeath": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "kundaliFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "selectedDocuments": {
+      "type": "json"
+    }
+  }
+} 
