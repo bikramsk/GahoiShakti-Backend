@@ -51,6 +51,17 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "marital_status": {
+      "type": "string"
+    },
+    "consider_second_marriage": {
+      "type": "boolean"
+    },
+    "previous_marriage_info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.previous-marriage-info"
     }
   }
 }

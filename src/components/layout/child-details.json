@@ -16,8 +16,8 @@
         "Female"
       ]
     },
-    "phone_number": {
-      "type": "string"
+    "age": {
+      "type": "integer"
     }
   }
 }

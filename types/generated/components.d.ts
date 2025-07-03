@@ -263,9 +263,9 @@ export interface LayoutChildDetails extends Struct.ComponentSchema {
     displayName: 'Child Details';
   };
   attributes: {
+    age: Schema.Attribute.Integer;
     child_name: Schema.Attribute.String;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
-    phone_number: Schema.Attribute.String;
   };
 }
 
@@ -366,6 +366,39 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
       >;
     nationality: Schema.Attribute.Enumeration<['Indian', 'Non-Indian']>;
     village: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutPreviousMarriageInfo extends Struct.ComponentSchema {
+  collectionName: 'components_layout_previous_marriage_info';
+  info: {
+    description: 'All details about previous marriage and partner expectations';
+    displayName: 'Previous Marriage Info';
+  };
+  attributes: {
+    aadhaar_back: Schema.Attribute.Media;
+    aadhaar_front: Schema.Attribute.Media;
+    accept_partner_with_children: Schema.Attribute.Boolean;
+    children: Schema.Attribute.Component<'layout.child-details', true>;
+    children_living_details: Schema.Attribute.Text;
+    current_living_with: Schema.Attribute.String;
+    current_status: Schema.Attribute.String;
+    death_certificate: Schema.Attribute.Media;
+    divorce_certificate: Schema.Attribute.Media;
+    expectations: Schema.Attribute.Text;
+    future_living_with: Schema.Attribute.String;
+    is_kundli_available: Schema.Attribute.Boolean;
+    kundli: Schema.Attribute.Media;
+    location_preference: Schema.Attribute.String;
+    marriage_date: Schema.Attribute.Date;
+    partner_age_preference: Schema.Attribute.String;
+    partner_education_preference: Schema.Attribute.String;
+    partner_type_preference: Schema.Attribute.String;
+    payment_proof: Schema.Attribute.Media;
+    spouse_name: Schema.Attribute.String;
+    termination_date: Schema.Attribute.Date;
+    termination_reason: Schema.Attribute.Text;
+    want_kundli_match: Schema.Attribute.Boolean;
   };
 }
 
@@ -922,6 +955,7 @@ declare module '@strapi/strapi' {
       'layout.localized-text': LayoutLocalizedText;
       'layout.monthly-expenses': LayoutMonthlyExpenses;
       'layout.personal-information': LayoutPersonalInformation;
+      'layout.previous-marriage-info': LayoutPreviousMarriageInfo;
       'layout.regional-information': LayoutRegionalInformation;
       'layout.seva-places': LayoutSevaPlaces;
       'layout.sibling-details': LayoutSiblingDetails;

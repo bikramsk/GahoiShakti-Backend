@@ -902,6 +902,7 @@ export interface ApiRegistrationPageRegistrationPage
       false
     >;
     child_name: Schema.Attribute.Component<'layout.child-details', true>;
+    consider_second_marriage: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -915,8 +916,13 @@ export interface ApiRegistrationPageRegistrationPage
       'api::registration-page.registration-page'
     > &
       Schema.Attribute.Private;
+    marital_status: Schema.Attribute.String;
     personal_information: Schema.Attribute.Component<
       'layout.personal-information',
+      false
+    >;
+    previous_marriage_info: Schema.Attribute.Component<
+      'layout.previous-marriage-info',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
