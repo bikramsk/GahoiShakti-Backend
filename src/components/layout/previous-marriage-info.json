@@ -6,88 +6,39 @@
   },
   "options": {},
   "attributes": {
-    "current_status": {
-      "type": "string"
-    },
     "spouse_name": {
       "type": "string"
     },
-    "marriage_date": {
+    "spouse_gotra": {
+      "type": "string"
+    },
+    "spouse_akna": {
+      "type": "string"
+    },
+    "spouse_dob": {
       "type": "date"
     },
-    "termination_date": {
-      "type": "date"
-    },
-    "termination_reason": {
-      "type": "text"
+    "children_living_with": {
+      "type": "enumeration",
+      "enum": ["yes", "no"]
     },
     "children": {
       "type": "component",
       "repeatable": true,
       "component": "layout.child-details"
     },
-    "current_living_with": {
-      "type": "string"
-    },
-    "future_living_with": {
-      "type": "string"
-    },
-    "children_living_details": {
-      "type": "text"
-    },
-    "expectations": {
-      "type": "text"
-    },
-    "is_kundli_available": {
-      "type": "boolean"
-    },
     "want_kundli_match": {
-      "type": "boolean"
-    },
-    "partner_age_preference": {
-      "type": "string"
-    },
-    "partner_education_preference": {
-      "type": "string"
-    },
-    "partner_type_preference": {
-      "type": "string"
-    },
-    "location_preference": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": ["yes", "no"]
     },
     "accept_partner_with_children": {
-      "type": "boolean"
-    },
-    "aadhaar_front": {
-      "type": "media",
-      "multiple": false,
-      "required": false
-    },
-    "aadhaar_back": {
-      "type": "media",
-      "multiple": false,
-      "required": false
-    },
-    "divorce_certificate": {
-      "type": "media",
-      "multiple": false,
-      "required": false
-    },
-    "death_certificate": {
-      "type": "media",
-      "multiple": false,
-      "required": false
-    },
-    "kundli": {
-      "type": "media",
-      "multiple": false,
-      "required": false
+      "type": "enumeration",
+      "enum": ["yes", "no"]
     },
     "payment_proof": {
       "type": "media",
       "multiple": false,
-      "required": false
+      "allowedTypes": ["images", "files", "videos"]
     }
   }
 }

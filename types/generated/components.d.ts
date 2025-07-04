@@ -259,11 +259,18 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
 export interface LayoutChildDetails extends Struct.ComponentSchema {
   collectionName: 'components_layout_child_details';
   info: {
-    description: '';
+    description: 'Information about children from previous marriage';
     displayName: 'Child Details';
   };
   attributes: {
-    age: Schema.Attribute.Integer;
+    age: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
     child_name: Schema.Attribute.String;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
   };
@@ -376,29 +383,15 @@ export interface LayoutPreviousMarriageInfo extends Struct.ComponentSchema {
     displayName: 'Previous Marriage Info';
   };
   attributes: {
-    aadhaar_back: Schema.Attribute.Media;
-    aadhaar_front: Schema.Attribute.Media;
-    accept_partner_with_children: Schema.Attribute.Boolean;
+    accept_partner_with_children: Schema.Attribute.Enumeration<['yes', 'no']>;
     children: Schema.Attribute.Component<'layout.child-details', true>;
-    children_living_details: Schema.Attribute.Text;
-    current_living_with: Schema.Attribute.String;
-    current_status: Schema.Attribute.String;
-    death_certificate: Schema.Attribute.Media;
-    divorce_certificate: Schema.Attribute.Media;
-    expectations: Schema.Attribute.Text;
-    future_living_with: Schema.Attribute.String;
-    is_kundli_available: Schema.Attribute.Boolean;
-    kundli: Schema.Attribute.Media;
-    location_preference: Schema.Attribute.String;
-    marriage_date: Schema.Attribute.Date;
-    partner_age_preference: Schema.Attribute.String;
-    partner_education_preference: Schema.Attribute.String;
-    partner_type_preference: Schema.Attribute.String;
-    payment_proof: Schema.Attribute.Media;
+    children_living_with: Schema.Attribute.Enumeration<['yes', 'no']>;
+    payment_proof: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    spouse_akna: Schema.Attribute.String;
+    spouse_dob: Schema.Attribute.Date;
+    spouse_gotra: Schema.Attribute.String;
     spouse_name: Schema.Attribute.String;
-    termination_date: Schema.Attribute.Date;
-    termination_reason: Schema.Attribute.Text;
-    want_kundli_match: Schema.Attribute.Boolean;
+    want_kundli_match: Schema.Attribute.Enumeration<['yes', 'no']>;
   };
 }
 
