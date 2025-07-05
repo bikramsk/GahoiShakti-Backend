@@ -137,39 +137,48 @@ module.exports = {
         return ctx.badRequest('Invalid mobile number format');
       }
 
-      // Check if user exists and has completed registration
-      const registrationPage = await strapi.query('api::registration-page.registration-page').findOne({
-        where: { 
-          'personal_information.mobile_number': mobileNumber
-        }
-      });
-
       const user = await strapi.query('plugin::users-permissions.user').findOne({
         where: { mobileNumber }
       });
+      console.log('Found user:', user);
 
       const otp = generateOTP();
       console.log('Generated OTP:', otp);
       
       try {
+        // Remove production check and send message
         const result = await sendWhatsAppMessage(mobileNumber, otp);
         console.log('WhatsApp API response:', result);
 
-        // Store OTP in session instead of creating user
-        ctx.session = ctx.session || {};
-        ctx.session.otpData = {
-          mobileNumber,
-          otp: hashMPIN(otp),
-          sentAt: new Date(),
-          attempts: 0
+        const userData = {
+          lastOtp: hashMPIN(otp),
+          lastOtpSent: new Date(),
+          otpAttempts: 0
         };
+
+        if (!user) {
+          await strapi.query('plugin::users-permissions.user').create({
+            data: {
+              username: `user_${mobileNumber}`,
+              email: `${mobileNumber}@placeholder.com`,
+              mobileNumber,
+              ...userData,
+              role: 1, // Default authenticated role
+              provider: 'local',
+              confirmed: true
+            }
+          });
+        } else {
+          await strapi.query('plugin::users-permissions.user').update({
+            where: { id: user.id },
+            data: userData
+          });
+        }
 
         return {
           success: true,
           message: 'OTP sent successfully',
-          otp: process.env.NODE_ENV === 'development' ? otp : undefined,
-          isRegistered: !!registrationPage,
-          hasMpin: user?.mpin ? true : false
+          otp: process.env.NODE_ENV === 'development' ? otp : undefined
         };
       } catch (error) {
         console.error('WhatsApp send error:', error);
@@ -189,56 +198,52 @@ module.exports = {
         return ctx.badRequest('Invalid input format');
       }
 
-      // Check session OTP data
-      if (!ctx.session?.otpData || 
-          ctx.session.otpData.mobileNumber !== mobileNumber ||
-          ctx.session.otpData.otp !== hashMPIN(otp)) {
-        return ctx.badRequest('Invalid OTP');
-      }
-
-      // Check OTP expiry (10 minutes)
-      const otpSentAt = new Date(ctx.session.otpData.sentAt);
-      const expiryTime = new Date(otpSentAt.getTime() + 10 * 60000);
-      if (new Date() > expiryTime) {
-        return ctx.badRequest('OTP has expired. Please request a new one.');
-      }
-
-      // Check if user exists and has completed registration
-      const registrationPage = await strapi.query('api::registration-page.registration-page').findOne({
-        where: { 
-          'personal_information.mobile_number': mobileNumber
-        }
-      });
-
       const user = await strapi.query('plugin::users-permissions.user').findOne({
         where: { mobileNumber }
       });
 
-      // Clear OTP data
-      delete ctx.session.otpData;
-
-      // Only return JWT if registration is complete and user exists
-      if (registrationPage && user) {
-        const jwt = strapi.plugins['users-permissions'].services.jwt.issue({
-          id: user.id
-        });
-        return {
-          jwt,
-          user: {
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            mobileNumber: user.mobileNumber,
-            hasMPIN: !!user.mpin
-          }
-        };
+      if (!user) {
+        return ctx.badRequest('User not found');
       }
 
-      // For unregistered users, just return success without JWT
+      if (!user.lastOtp || !user.lastOtpSent) {
+        return ctx.badRequest('No OTP was sent');
+      }
+
+      // Check if OTP is expired (10 minutes)
+      const otpExpiry = new Date(user.lastOtpSent);
+      otpExpiry.setMinutes(otpExpiry.getMinutes() + 10);
+      
+      if (new Date() > otpExpiry) {
+        return ctx.badRequest('OTP has expired. Please request a new one.');
+      }
+
+      if (user.lastOtp !== hashMPIN(otp)) {
+        return ctx.badRequest('Invalid OTP');
+      }
+
+      // Clear OTP data after successful verification
+      await strapi.query('plugin::users-permissions.user').update({
+        where: { id: user.id },
+        data: {
+          lastOtp: null,
+          otpAttempts: 0
+        }
+      });
+
+      const jwt = strapi.plugins['users-permissions'].services.jwt.issue({
+        id: user.id
+      });
+
       return {
-        success: true,
-        isRegistered: false,
-        message: 'OTP verified successfully'
+        jwt,
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          mobileNumber: user.mobileNumber,
+          hasMPIN: !!user.mpin
+        }
       };
     } catch (error) {
       console.error('OTP verification error:', error);
@@ -315,6 +320,3 @@ module.exports = {
     }
   }
 };
-
-
-
