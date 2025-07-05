@@ -163,7 +163,7 @@ module.exports = {
               email: `${mobileNumber}@placeholder.com`,
               mobileNumber,
               ...userData,
-              role: 1, // Default authenticated role
+              role: 1,
               provider: 'local',
               confirmed: true
             }
