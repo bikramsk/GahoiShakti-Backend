@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "draft_registrations",
+  "info": {
+    "singularName": "draft-registration",
+    "pluralName": "draft-registrations",
+    "displayName": "Draft Registration",
+    "description": "Stores incomplete registration data"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mobileNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "formData": {
+      "type": "json",
+      "required": true
+    },
+    "currentStep": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "lastSaved": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+} 

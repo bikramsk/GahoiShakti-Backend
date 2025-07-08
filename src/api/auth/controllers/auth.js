@@ -163,7 +163,7 @@ module.exports = {
               email: `${mobileNumber}@placeholder.com`,
               mobileNumber,
               ...userData,
-              role: 1,
+              role: 1, // Default authenticated role
               provider: 'local',
               confirmed: true
             }
@@ -320,3 +320,6 @@ module.exports = {
     }
   }
 };
+
+
+
