@@ -22,28 +22,6 @@
     "age": {
       "type": "integer"
     },
-    "education": {
-      "type": "enumeration",
-      "enum": [
-        "Primary",
-        "Secondary",
-        "Higher Secondary",
-        "Graduate",
-        "Post Graduate",
-        "Other"
-      ]
-    },
-    "occupation": {
-      "type": "enumeration",
-      "enum": [
-        "Student",
-        "Employed",
-        "Self-Employed",
-        "Business",
-        "Homemaker",
-        "Other"
-      ]
-    },
     "marital_status": {
       "type": "enumeration",
       "enum": [
@@ -52,9 +30,6 @@
         "Widow/Widower",
         "Divorced"
       ]
-    },
-    "is_dependent": {
-      "type": "boolean"
     },
     "sibling_relation": {
       "type": "enumeration",

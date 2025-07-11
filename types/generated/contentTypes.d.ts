@@ -590,6 +590,43 @@ export interface ApiCowsevaCowseva extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDraftRegistrationDraftRegistration
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft_registrations';
+  info: {
+    description: 'Stores incomplete registration data';
+    displayName: 'Draft Registration';
+    pluralName: 'draft-registrations';
+    singularName: 'draft-registration';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    currentStep: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    formData: Schema.Attribute.JSON & Schema.Attribute.Required;
+    lastSaved: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-registration.draft-registration'
+    > &
+      Schema.Attribute.Private;
+    mobileNumber: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGahoiSammelanGahoiSammelan
   extends Struct.CollectionTypeSchema {
   collectionName: 'gahoi_sammelans';
@@ -831,54 +868,6 @@ export interface ApiLoginPageLoginPage extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMobileUserMobileUser extends Struct.CollectionTypeSchema {
-  collectionName: 'mobile_users';
-  info: {
-    description: 'Users who authenticate with mobile number and MPIN/OTP';
-    displayName: 'MobileUser';
-    pluralName: 'mobile-users';
-    singularName: 'mobile-user';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    blockUntil: Schema.Attribute.DateTime;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    isBlocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    isRegistered: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    lastOtp: Schema.Attribute.String & Schema.Attribute.Private;
-    lastOtpSent: Schema.Attribute.DateTime;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::mobile-user.mobile-user'
-    > &
-      Schema.Attribute.Private;
-    mobileNumber: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 10;
-        minLength: 10;
-      }>;
-    mpin: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 4;
-        minLength: 4;
-      }>;
-    name: Schema.Attribute.String;
-    otpAttempts: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRegistrationPageRegistrationPage
   extends Struct.CollectionTypeSchema {
   collectionName: 'registration_pages';
@@ -889,8 +878,7 @@ export interface ApiRegistrationPageRegistrationPage
     singularName: 'registration-page';
   };
   options: {
-    draftAndPublish: true;
-    mainField: 'registration_code';
+    draftAndPublish: false;
   };
   attributes: {
     additional_details: Schema.Attribute.Component<
@@ -920,7 +908,8 @@ export interface ApiRegistrationPageRegistrationPage
     personal_information: Schema.Attribute.Component<
       'layout.personal-information',
       false
-    >;
+    > &
+      Schema.Attribute.Unique;
     previous_marriage_info: Schema.Attribute.Component<
       'layout.previous-marriage-info',
       false
@@ -1670,12 +1659,12 @@ declare module '@strapi/strapi' {
       'api::banner-image.banner-image': ApiBannerImageBannerImage;
       'api::contact.contact': ApiContactContact;
       'api::cowseva.cowseva': ApiCowsevaCowseva;
+      'api::draft-registration.draft-registration': ApiDraftRegistrationDraftRegistration;
       'api::gahoi-sammelan.gahoi-sammelan': ApiGahoiSammelanGahoiSammelan;
       'api::gallery-event.gallery-event': ApiGalleryEventGalleryEvent;
       'api::global.global': ApiGlobalGlobal;
       'api::latest-news.latest-news': ApiLatestNewsLatestNews;
       'api::login-page.login-page': ApiLoginPageLoginPage;
-      'api::mobile-user.mobile-user': ApiMobileUserMobileUser;
       'api::registration-page.registration-page': ApiRegistrationPageRegistrationPage;
       'api::regular-contributor.regular-contributor': ApiRegularContributorRegularContributor;
       'api::supported-student.supported-student': ApiSupportedStudentSupportedStudent;

@@ -8,8 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true,
-    "mainField": "registration_code"
+    "draftAndPublish": false
   },
   "attributes": {
     "family_details": {
@@ -30,7 +29,10 @@
     "personal_information": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.personal-information"
+      "component": "layout.personal-information",
+      "unique": [
+        "mobile_number"
+      ]
     },
     "work_information": {
       "type": "component",

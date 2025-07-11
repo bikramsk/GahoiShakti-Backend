@@ -17,13 +17,11 @@
     "full_name": {
       "type": "string"
     },
-    "village": {
-      "type": "string"
-    },
     "mobile_number": {
       "type": "biginteger",
       "required": true,
-      "max": "10"
+      "max": "10",
+      "unique": true
     },
     "Gender": {
       "type": "enumeration",

@@ -365,6 +365,7 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     mobile_number: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMax<
         {
           max: '10';
@@ -372,7 +373,6 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
         string
       >;
     nationality: Schema.Attribute.Enumeration<['Indian', 'Non-Indian']>;
-    village: Schema.Attribute.String;
   };
 }
 
@@ -402,6 +402,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     displayName: 'Regional Information';
   };
   attributes: {
+    District: Schema.Attribute.String;
     gram_panchayat: Schema.Attribute.String & Schema.Attribute.Required;
     local_body: Schema.Attribute.String & Schema.Attribute.Required;
     LocalPanchayat: Schema.Attribute.Enumeration<
@@ -511,14 +512,43 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     State: Schema.Attribute.Enumeration<
       [
         '',
+        'A & N Islands',
+        'Andhra Pradesh',
+        'Arunachal Pradesh',
+        'Assam',
         'Bihar',
-        'Chhatisgarh',
-        'Delhi',
+        'Chandigarh',
+        'Chhattisgarh',
+        'D & N Haveli',
+        'Daman & Diu',
+        'Goa',
         'Gujarat',
+        'Haryana',
+        'Himachal Pradesh',
+        'Jammu & Kashmir',
+        'Jharkhand',
+        'Karnataka',
+        'Kerala',
         'Madhya Pradesh',
         'Maharashtra',
+        'Manipur',
+        'Meghalaya',
+        'Mizoram',
+        'Nagaland',
+        'Delhi',
+        'Odisha',
+        'Orissa',
+        'Puducherry',
+        'Punjab',
         'Rajasthan',
+        'Sikkim',
+        'Tamil Nadu',
+        'Telangana',
+        'Telengana',
+        'Tripura',
         'Uttar Pradesh',
+        'Uttarakhand',
+        'West Bengal',
       ]
     >;
     SubLocalPanchayat: Schema.Attribute.Enumeration<
@@ -738,23 +768,9 @@ export interface LayoutSiblingDetails extends Struct.ComponentSchema {
   };
   attributes: {
     age: Schema.Attribute.Integer;
-    education: Schema.Attribute.Enumeration<
-      [
-        'Primary',
-        'Secondary',
-        'Higher Secondary',
-        'Graduate',
-        'Post Graduate',
-        'Other',
-      ]
-    >;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
-    is_dependent: Schema.Attribute.Boolean;
     marital_status: Schema.Attribute.Enumeration<
       ['Married', 'Unmarried', 'Widow/Widower', 'Divorced']
-    >;
-    occupation: Schema.Attribute.Enumeration<
-      ['Student', 'Employed', 'Self-Employed', 'Business', 'Homemaker', 'Other']
     >;
     phone_number: Schema.Attribute.String;
     sibling_name: Schema.Attribute.String;
