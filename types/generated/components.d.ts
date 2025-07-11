@@ -26,7 +26,7 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
     displayName: 'Biographical Details';
   };
   attributes: {
-    Aakna: Schema.Attribute.Enumeration<
+    aakna: Schema.Attribute.Enumeration<
       [
         'Amroha',
         'Andhi',
@@ -229,7 +229,7 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
     >;
     consider_second_marriage: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
-    Gotra: Schema.Attribute.Enumeration<
+    gotra: Schema.Attribute.Enumeration<
       [
         'Vasar/Vastil/Vasal',
         'Gol',
@@ -306,6 +306,8 @@ export interface LayoutFamilyDetails extends Struct.ComponentSchema {
     mother_name: Schema.Attribute.String;
     phone_number: Schema.Attribute.BigInteger;
     siblingDetails: Schema.Attribute.Component<'layout.sibling-details', true>;
+    spouse_aakna: Schema.Attribute.String;
+    spouse_gotra: Schema.Attribute.String;
     spouse_mobile: Schema.Attribute.String;
     spouse_name: Schema.Attribute.String;
   };

@@ -43,6 +43,14 @@
     "aakna": {
       "type": "string",
       "required": false
+    },
+    "spouse_gotra": {
+      "type": "string",
+      "required": false
+    },
+    "spouse_aakna": {
+      "type": "string",
+      "required": false
     }
   }
 }
