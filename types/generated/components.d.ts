@@ -273,6 +273,7 @@ export interface LayoutChildDetails extends Struct.ComponentSchema {
       >;
     child_name: Schema.Attribute.String;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
+    phone_number: Schema.Attribute.String;
   };
 }
 
