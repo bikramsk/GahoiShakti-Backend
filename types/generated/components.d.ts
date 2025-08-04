@@ -386,9 +386,17 @@ export interface LayoutPreviousMarriageInfo extends Struct.ComponentSchema {
     displayName: 'Previous Marriage Info';
   };
   attributes: {
+    aadhar_back: Schema.Attribute.Media<'images' | 'files'>;
+    aadhar_front: Schema.Attribute.Media<'images' | 'files'>;
     accept_partner_with_children: Schema.Attribute.Enumeration<['yes', 'no']>;
     children: Schema.Attribute.Component<'layout.child-details', true>;
     children_living_with: Schema.Attribute.Enumeration<['yes', 'no']>;
+    has_children: Schema.Attribute.Enumeration<['Yes', 'No']>;
+    kundali_photo: Schema.Attribute.Media<'images' | 'files'>;
+    marriage_to_another_caste: Schema.Attribute.Enumeration<
+      ['', 'Same Caste Marriage', 'Married to Another Caste']
+    >;
+    number_of_children: Schema.Attribute.Integer;
     payment_proof: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     spouse_akna: Schema.Attribute.String;
     spouse_dob: Schema.Attribute.Date;

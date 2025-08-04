@@ -39,6 +39,42 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images", "files", "videos"]
-    }
+    },
+    "marriage_to_another_caste": {
+      "type": "enumeration",
+      "enum": [
+        "",
+        "Same Caste Marriage",
+        "Married to Another Caste"
+      ],
+      "required": false
+    },
+    "has_children": {
+      "type": "enumeration",
+      "enum": ["Yes", "No"],
+      "required": false
+    },
+    "number_of_children": {
+      "type": "integer",
+      "required": false
+    },
+    "aadhar_front": {
+  "type": "media",
+  "multiple": false,
+  "required": false,
+  "allowedTypes": ["images", "files"]
+},
+"aadhar_back": {
+  "type": "media",
+  "multiple": false,
+  "required": false,
+  "allowedTypes": ["images", "files"]
+},
+"kundali_photo": {
+  "type": "media",
+  "multiple": false,
+  "required": false,
+  "allowedTypes": ["images", "files"]
+}
   }
 }
