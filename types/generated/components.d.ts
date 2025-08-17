@@ -263,6 +263,14 @@ export interface LayoutChildDetails extends Struct.ComponentSchema {
     displayName: 'Child Details';
   };
   attributes: {
+    age: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
     child_name: Schema.Attribute.String;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
     phone_number: Schema.Attribute.String;
