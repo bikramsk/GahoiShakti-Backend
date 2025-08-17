@@ -34,11 +34,6 @@
     "sibling_relation": {
       "type": "enumeration",
       "enum": [
-        "Father's (Elder) Brother ताऊ",
-        "Father's (Younger) Brother चाचा",
-        "Father's Sister बुआ",
-        "Mother's Brother मामा",
-        "Mother's Sister मौसी",
         "Sister बहन",
         "Brother भाई"
       ]

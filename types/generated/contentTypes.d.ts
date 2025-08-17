@@ -1064,6 +1064,47 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUserFamilyAdditionUserFamilyAddition
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_family_additions';
+  info: {
+    description: 'User-added family members when viewing profiles';
+    displayName: 'User Family Addition';
+    pluralName: 'user-family-additions';
+    singularName: 'user-family-addition';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    added_children: Schema.Attribute.Component<'layout.child-details', true>;
+    added_father_mobile: Schema.Attribute.String;
+    added_father_name: Schema.Attribute.String;
+    added_mother_mobile: Schema.Attribute.String;
+    added_mother_name: Schema.Attribute.String;
+    added_siblings: Schema.Attribute.Component<'layout.sibling-details', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-family-addition.user-family-addition'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    relationship_to_profile: Schema.Attribute.Enumeration<
+      ['father', 'mother', 'spouse', 'sibling', 'child', 'other']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user_mobile: Schema.Attribute.String & Schema.Attribute.Required;
+    viewed_profile_document_id: Schema.Attribute.String &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
   collectionName: 'user_mpins';
   info: {
@@ -1669,6 +1710,7 @@ declare module '@strapi/strapi' {
       'api::regular-contributor.regular-contributor': ApiRegularContributorRegularContributor;
       'api::supported-student.supported-student': ApiSupportedStudentSupportedStudent;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::user-family-addition.user-family-addition': ApiUserFamilyAdditionUserFamilyAddition;
       'api::user-mpin.user-mpin': ApiUserMpinUserMpin;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

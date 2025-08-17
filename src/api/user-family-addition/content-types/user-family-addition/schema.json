@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_family_additions",
+  "info": {
+    "singularName": "user-family-addition",
+    "pluralName": "user-family-additions",
+    "displayName": "User Family Addition",
+    "description": "User-added family members when viewing profiles"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_mobile": {
+      "type": "string",
+      "required": true
+    },
+    "viewed_profile_document_id": {
+      "type": "string",
+      "required": true
+    },
+    "added_father_name": {
+      "type": "string"
+    },
+    "added_father_mobile": {
+      "type": "string"
+    },
+    "added_mother_name": {
+      "type": "string"
+    },
+    "added_mother_mobile": {
+      "type": "string"
+    },
+    "added_children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.child-details"
+    },
+    "added_siblings": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.sibling-details"
+    },
+    "relationship_to_profile": {
+      "type": "enumeration",
+      "enum": [
+        "father",
+        "mother",
+        "spouse",
+        "sibling",
+        "child",
+        "other"
+      ]
+    }
+  }
+}

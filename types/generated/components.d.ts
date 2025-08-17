@@ -263,14 +263,6 @@ export interface LayoutChildDetails extends Struct.ComponentSchema {
     displayName: 'Child Details';
   };
   attributes: {
-    age: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 100;
-          min: 0;
-        },
-        number
-      >;
     child_name: Schema.Attribute.String;
     gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
     phone_number: Schema.Attribute.String;
@@ -786,15 +778,7 @@ export interface LayoutSiblingDetails extends Struct.ComponentSchema {
     phone_number: Schema.Attribute.String;
     sibling_name: Schema.Attribute.String;
     sibling_relation: Schema.Attribute.Enumeration<
-      [
-        "Father's (Elder) Brother \u0924\u093E\u090A",
-        "Father's (Younger) Brother \u091A\u093E\u091A\u093E",
-        "Father's Sister \u092C\u0941\u0906",
-        "Mother's Brother \u092E\u093E\u092E\u093E",
-        "Mother's Sister \u092E\u094C\u0938\u0940",
-        'Sister \u092C\u0939\u0928',
-        'Brother \u092D\u093E\u0908',
-      ]
+      ['Sister \u092C\u0939\u0928', 'Brother \u092D\u093E\u0908']
     >;
   };
 }
