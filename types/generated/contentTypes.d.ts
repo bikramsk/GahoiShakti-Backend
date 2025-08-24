@@ -868,6 +868,39 @@ export interface ApiLoginPageLoginPage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPeopleSearchPeopleSearch
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'people_searches';
+  info: {
+    description: 'Search functionality for finding community members';
+    displayName: 'People Search';
+    pluralName: 'people-searches';
+    singularName: 'people-search';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    filters_used: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::people-search.people-search'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    results_count: Schema.Attribute.Integer;
+    search_term: Schema.Attribute.String;
+    searched_by: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRegistrationPageRegistrationPage
   extends Struct.CollectionTypeSchema {
   collectionName: 'registration_pages';
@@ -1706,6 +1739,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::latest-news.latest-news': ApiLatestNewsLatestNews;
       'api::login-page.login-page': ApiLoginPageLoginPage;
+      'api::people-search.people-search': ApiPeopleSearchPeopleSearch;
       'api::registration-page.registration-page': ApiRegistrationPageRegistrationPage;
       'api::regular-contributor.regular-contributor': ApiRegularContributorRegularContributor;
       'api::supported-student.supported-student': ApiSupportedStudentSupportedStudent;

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people_searches",
+  "info": {
+    "singularName": "people-search",
+    "pluralName": "people-searches",
+    "displayName": "People Search",
+    "description": "Search functionality for finding community members"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "search_term": {
+      "type": "string"
+    },
+    "filters_used": {
+      "type": "json"
+    },
+    "results_count": {
+      "type": "integer"
+    },
+    "searched_by": {
+      "type": "string"
+    }
+  }
+}
