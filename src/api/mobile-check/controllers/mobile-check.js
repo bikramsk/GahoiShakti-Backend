@@ -74,7 +74,7 @@ function getRole(familyDetails, children = [], mobile) {
   const sibling = familyDetails?.siblingDetails?.find(
     (s) => s.phone_number === mobile
   );
-  if (sibling) return `sibling (${s.sibling_relation})`;
+  if (sibling) return `sibling (${sibling.sibling_relation})`;
 
   const child = children?.find(
     (c) => c.phone_number === mobile
