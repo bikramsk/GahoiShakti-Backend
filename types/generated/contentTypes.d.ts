@@ -1129,6 +1129,8 @@ export interface ApiUserFamilyAdditionUserFamilyAddition
     relationship_to_profile: Schema.Attribute.Enumeration<
       ['father', 'mother', 'spouse', 'sibling', 'child', 'other']
     >;
+    sibling_spouse_mobile: Schema.Attribute.String;
+    sibling_spouse_name: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -52,6 +52,12 @@
         "child",
         "other"
       ]
+    },
+    "sibling_spouse_name": {
+      "type": "string"
+    },
+    "sibling_spouse_mobile": {
+      "type": "string"
     }
   }
 }
